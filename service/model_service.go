@@ -53,12 +53,21 @@ func (m ModelServiceImpl) Update(ctx context.Context, request *types.UpdateReque
 }
 
 func (m ModelServiceImpl) List(ctx context.Context, request *types.ListRequest) (*types.ListResponse, error) {
-	_, err := m.modelDao.List()
+	list, err := m.modelDao.List()
 	if err != nil {
 		return nil, err
 	}
 
-	return &types.ListResponse{}, err
+	var data []*types.ListResponseData
+	for _, model := range list {
+		data = append(data, &types.ListResponseData{
+			ID: model.ID,
+		})
+	}
+
+	return &types.ListResponse{
+		Data: data,
+	}, err
 }
 
 func (m ModelServiceImpl) Get(ctx context.Context, request *types.GetRequest) (*types.GetResponse, error) {
