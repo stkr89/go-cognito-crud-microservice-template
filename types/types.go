@@ -2,6 +2,12 @@ package types
 
 import "github.com/google/uuid"
 
+type User struct {
+	FirstName string `json:"firstName" validate:"required"`
+	LastName  string `json:"lastName" validate:"required"`
+	Email     string `json:"email" validate:"required"`
+}
+
 type CreateRequest struct {
 }
 

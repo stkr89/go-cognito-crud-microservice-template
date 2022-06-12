@@ -19,46 +19,61 @@ type errorWrapper struct {
 }
 
 func NewHTTPHandler(endpoints endpoints.Endpoints) http.Handler {
+	commonOptions := []httptransport.ServerOption{
+		httptransport.ServerBefore(parseHttpAccessToken),
+		httptransport.ServerErrorEncoder(errorEncoder),
+	}
+
 	m := mux.NewRouter()
 	m.Handle("/api/v1/model", httptransport.NewServer(
 		endpoint.Chain(
+			middleware.AuthenticateUser(),
 			middleware.ValidateCreateInput(),
 			middleware.ConformCreateInput(),
 		)(endpoints.Create),
 		decodeHTTPCreateRequest,
 		encodeHTTPGenericResponse,
+		commonOptions...,
 	)).Methods(http.MethodPost)
 	m.Handle("/api/v1/model/{id}", httptransport.NewServer(
 		endpoint.Chain(
+			middleware.AuthenticateUser(),
 			middleware.ValidateGetInput(),
 			middleware.ConformGetInput(),
 		)(endpoints.Get),
 		decodeHTTPGetRequest,
 		encodeHTTPGenericResponse,
+		commonOptions...,
 	)).Methods(http.MethodGet)
 	m.Handle("/api/v1/model", httptransport.NewServer(
 		endpoint.Chain(
+			middleware.AuthenticateUser(),
 			middleware.ValidateListInput(),
 			middleware.ConformListInput(),
 		)(endpoints.List),
 		decodeHTTPListRequest,
 		encodeHTTPGenericResponse,
+		commonOptions...,
 	)).Methods(http.MethodGet)
 	m.Handle("/api/v1/model", httptransport.NewServer(
 		endpoint.Chain(
+			middleware.AuthenticateUser(),
 			middleware.ValidateUpdateInput(),
 			middleware.ConformUpdateInput(),
 		)(endpoints.Update),
 		decodeHTTPUpdateRequest,
 		encodeHTTPGenericResponse,
+		commonOptions...,
 	)).Methods(http.MethodPut)
 	m.Handle("/api/v1/model/{id}", httptransport.NewServer(
 		endpoint.Chain(
+			middleware.AuthenticateUser(),
 			middleware.ValidateDeleteInput(),
 			middleware.ConformDeleteInput(),
 		)(endpoints.Delete),
 		decodeHTTPDeleteRequest,
 		encodeHTTPGenericResponse,
+		commonOptions...,
 	)).Methods(http.MethodDelete)
 
 	return m
