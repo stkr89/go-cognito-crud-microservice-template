@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"github.com/google/uuid"
 	"github.com/lestrrat-go/jwx/jwk"
 	"github.com/lestrrat-go/jwx/jwt"
 	"github.com/stkr89/modelsvc/types"
@@ -41,7 +42,13 @@ func parseHttpAccessToken(ctx context.Context, r *http.Request) context.Context 
 		return ctx
 	}
 
+	id, err := uuid.Parse(tokenMap["sub"].(string))
+	if err != nil {
+		return ctx
+	}
+
 	user := types.User{
+		ID:        id,
 		FirstName: tokenMap["custom:firstName"].(string),
 		LastName:  tokenMap["custom:lastName"].(string),
 		Email:     tokenMap["email"].(string),
