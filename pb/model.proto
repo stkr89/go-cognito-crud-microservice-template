@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package pb.modelsvc.v1;
+
+option go_package = "pb/modelsvc/v1";
+
+service ModelSvc {
+  rpc Create(CreateRequest) returns (CreateResponse) {}
+  rpc Get(GetRequest) returns (GetResponse) {}
+  rpc List(ListRequest) returns (ListResponse) {}
+  rpc Update(UpdateRequest) returns (UpdateResponse) {}
+  rpc Delete(DeleteRequest) returns (DeleteResponse) {}
+}
+
+message DeleteRequest {
+
+}
+
+message DeleteResponse {
+
+}
+
+message UpdateRequest {
+
+}
+
+message UpdateResponse {
+
+}
+
+message ListRequest {
+
+}
+
+message ListResponse {
+
+}
+
+message GetRequest {
+
+}
+
+message GetResponse {
+
+}
+
+message CreateRequest {
+
+}
+
+message CreateResponse {
+
+}
