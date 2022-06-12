@@ -29,34 +29,34 @@ func MakeEndpoints(s service.ModelService) Endpoints {
 func makeDeleteEndpoint(s service.ModelService) endpoint.Endpoint {
 	return func(ctx context.Context, request interface{}) (response interface{}, err error) {
 		req := request.(*types.DeleteRequest)
-		return nil, s.Delete(req)
+		return nil, s.Delete(ctx, req)
 	}
 }
 
 func makeUpdateEndpoint(s service.ModelService) endpoint.Endpoint {
 	return func(ctx context.Context, request interface{}) (response interface{}, err error) {
 		req := request.(*types.UpdateRequest)
-		return s.Update(req)
+		return s.Update(ctx, req)
 	}
 }
 
 func makeListEndpoint(s service.ModelService) endpoint.Endpoint {
 	return func(ctx context.Context, request interface{}) (response interface{}, err error) {
 		req := request.(*types.ListRequest)
-		return s.List(req)
+		return s.List(ctx, req)
 	}
 }
 
 func makeGetEndpoint(s service.ModelService) endpoint.Endpoint {
 	return func(ctx context.Context, request interface{}) (response interface{}, err error) {
 		req := request.(*types.GetRequest)
-		return s.Get(req)
+		return s.Get(ctx, req)
 	}
 }
 
 func makeCreateEndpoint(s service.ModelService) endpoint.Endpoint {
 	return func(ctx context.Context, request interface{}) (response interface{}, err error) {
 		req := request.(*types.CreateRequest)
-		return s.Create(req)
+		return s.Create(ctx, req)
 	}
 }

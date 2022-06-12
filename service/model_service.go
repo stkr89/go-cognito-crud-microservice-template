@@ -1,6 +1,7 @@
 package service
 
 import (
+	"context"
 	"github.com/go-kit/kit/log"
 	"github.com/stkr89/modelsvc/common"
 	"github.com/stkr89/modelsvc/dao"
@@ -10,11 +11,11 @@ import (
 
 // ModelService interface
 type ModelService interface {
-	Create(request *types.CreateRequest) (*types.CreateResponse, error)
-	Get(request *types.GetRequest) (*types.GetResponse, error)
-	List(request *types.ListRequest) (*types.ListResponse, error)
-	Update(request *types.UpdateRequest) (*types.UpdateResponse, error)
-	Delete(request *types.DeleteRequest) error
+	Create(ctx context.Context, request *types.CreateRequest) (*types.CreateResponse, error)
+	Get(ctx context.Context, request *types.GetRequest) (*types.GetResponse, error)
+	List(ctx context.Context, request *types.ListRequest) (*types.ListResponse, error)
+	Update(ctx context.Context, request *types.UpdateRequest) (*types.UpdateResponse, error)
+	Delete(ctx context.Context, request *types.DeleteRequest) error
 }
 
 type ModelServiceImpl struct {
@@ -29,7 +30,7 @@ func NewModelServiceImpl() *ModelServiceImpl {
 	}
 }
 
-func (m ModelServiceImpl) Delete(request *types.DeleteRequest) error {
+func (m ModelServiceImpl) Delete(ctx context.Context, request *types.DeleteRequest) error {
 	err := m.modelDao.Delete(request.ID)
 	if err != nil {
 		return err
@@ -40,7 +41,7 @@ func (m ModelServiceImpl) Delete(request *types.DeleteRequest) error {
 	return nil
 }
 
-func (m ModelServiceImpl) Update(request *types.UpdateRequest) (*types.UpdateResponse, error) {
+func (m ModelServiceImpl) Update(ctx context.Context, request *types.UpdateRequest) (*types.UpdateResponse, error) {
 	updatedModel, err := m.modelDao.Update(&models.Model{})
 	if err != nil {
 		return nil, err
@@ -51,7 +52,7 @@ func (m ModelServiceImpl) Update(request *types.UpdateRequest) (*types.UpdateRes
 	return &types.UpdateResponse{}, nil
 }
 
-func (m ModelServiceImpl) List(request *types.ListRequest) (*types.ListResponse, error) {
+func (m ModelServiceImpl) List(ctx context.Context, request *types.ListRequest) (*types.ListResponse, error) {
 	_, err := m.modelDao.List()
 	if err != nil {
 		return nil, err
@@ -60,7 +61,7 @@ func (m ModelServiceImpl) List(request *types.ListRequest) (*types.ListResponse,
 	return &types.ListResponse{}, err
 }
 
-func (m ModelServiceImpl) Get(request *types.GetRequest) (*types.GetResponse, error) {
+func (m ModelServiceImpl) Get(ctx context.Context, request *types.GetRequest) (*types.GetResponse, error) {
 	_, err := m.modelDao.Get(request.ID)
 	if err != nil {
 		return nil, err
@@ -69,7 +70,7 @@ func (m ModelServiceImpl) Get(request *types.GetRequest) (*types.GetResponse, er
 	return &types.GetResponse{}, nil
 }
 
-func (m ModelServiceImpl) Create(request *types.CreateRequest) (*types.CreateResponse, error) {
+func (m ModelServiceImpl) Create(ctx context.Context, request *types.CreateRequest) (*types.CreateResponse, error) {
 	createdModel, err := m.modelDao.Create(&models.Model{})
 	if err != nil {
 		return nil, err
