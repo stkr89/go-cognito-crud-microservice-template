@@ -14,8 +14,9 @@ func (e Error) Error() string {
 }
 
 var (
-	InvalidRequestBody = "Invalid request body"
-	SomethingWentWrong = "Something went wrong"
-	InvalidID          = "Invalid ID"
-	Unauthorized       = "Unauthorized"
+	InvalidRequestBody    = "Invalid request body"
+	SomethingWentWrong    = "Something went wrong"
+	InvalidID             = "Invalid ID"
+	Unauthorized          = "Unauthorized"
+	UserNotFoundInContext = "User not found in context"
 )
