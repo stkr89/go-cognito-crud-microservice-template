@@ -36,5 +36,7 @@ $ make generate
   - `DB_CLUSTER`
   - `GRPC_PORT`
   - `HTTP_PORT`
+  - `AWS_ACCESS_KEY_ID`
+  - `AWS_SECRET_ACCESS_KEY`
   - `AWS_COGNITO_REGION`
   - `AWS_COGNITO_USER_POOL_ID`
