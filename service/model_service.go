@@ -36,7 +36,7 @@ func (m ModelServiceImpl) Delete(ctx context.Context, request *types.DeleteReque
 		return err
 	}
 
-	m.logger.Log("message", "deleted successfully", "return", request.ID)
+	m.logger.Log("message", "deleted successfully", "id", request.ID)
 
 	return nil
 }
@@ -47,7 +47,7 @@ func (m ModelServiceImpl) Update(ctx context.Context, request *types.UpdateReque
 		return nil, err
 	}
 
-	m.logger.Log("message", "updated successfully", "return", updatedModel.ID)
+	m.logger.Log("message", "updated successfully", "id", updatedModel.ID)
 
 	return &types.UpdateResponse{}, nil
 }
@@ -85,7 +85,7 @@ func (m ModelServiceImpl) Create(ctx context.Context, request *types.CreateReque
 		return nil, err
 	}
 
-	m.logger.Log("message", "created successfully", "return", createdModel.ID)
+	m.logger.Log("message", "created successfully", "id", createdModel.ID)
 
 	return &types.CreateResponse{}, nil
 }
