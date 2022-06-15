@@ -81,7 +81,7 @@ func NewHTTPHandler(endpoints endpoints.Endpoints) http.Handler {
 
 func err2code(err *common.Error) int {
 	switch err.Key {
-	case common.InvalidRequestBody:
+	case common.InvalidRequestBody, common.InvalidID:
 		return http.StatusBadRequest
 	case common.Unauthorized:
 		return http.StatusUnauthorized
@@ -113,12 +113,12 @@ func decodeHTTPDeleteRequest(_ context.Context, r *http.Request) (interface{}, e
 
 	id, err := uuid.Parse(idStr)
 	if err != nil {
-		return nil, err
+		return nil, common.NewError(common.InvalidID, "invalid id")
 	}
 
 	return &types.DeleteRequest{
 		ID: id,
-	}, err
+	}, nil
 }
 
 func decodeHTTPListRequest(_ context.Context, r *http.Request) (interface{}, error) {
@@ -129,7 +129,10 @@ func decodeHTTPListRequest(_ context.Context, r *http.Request) (interface{}, err
 func decodeHTTPUpdateRequest(_ context.Context, r *http.Request) (interface{}, error) {
 	var req types.UpdateRequest
 	err := json.NewDecoder(r.Body).Decode(&req)
-	return &req, err
+	if err != nil {
+		return nil, common.NewError(common.InvalidRequestBody, "invalid request body")
+	}
+	return &req, nil
 }
 
 func decodeHTTPGetRequest(_ context.Context, r *http.Request) (interface{}, error) {
@@ -141,16 +144,19 @@ func decodeHTTPGetRequest(_ context.Context, r *http.Request) (interface{}, erro
 
 	id, err := uuid.Parse(idStr)
 	if err != nil {
-		return nil, err
+		return nil, common.NewError(common.InvalidID, "invalid id")
 	}
 
 	return &types.GetRequest{
 		ID: id,
-	}, err
+	}, nil
 }
 
 func decodeHTTPCreateRequest(_ context.Context, r *http.Request) (interface{}, error) {
 	var req types.CreateRequest
 	err := json.NewDecoder(r.Body).Decode(&req)
-	return &req, err
+	if err != nil {
+		return nil, common.NewError(common.InvalidRequestBody, "invalid request body")
+	}
+	return &req, nil
 }
