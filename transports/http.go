@@ -25,7 +25,7 @@ func NewHTTPHandler(endpoints endpoints.Endpoints) http.Handler {
 	}
 
 	m := mux.NewRouter()
-	m.Handle("/api/v1/model", httptransport.NewServer(
+	m.Handle("/api/model/v1", httptransport.NewServer(
 		endpoint.Chain(
 			middleware.AuthenticateUser(),
 			middleware.ValidateCreateInput(),
@@ -35,7 +35,7 @@ func NewHTTPHandler(endpoints endpoints.Endpoints) http.Handler {
 		encodeHTTPGenericResponse,
 		commonOptions...,
 	)).Methods(http.MethodPost)
-	m.Handle("/api/v1/model/{id}", httptransport.NewServer(
+	m.Handle("/api/model/v1/{id}", httptransport.NewServer(
 		endpoint.Chain(
 			middleware.AuthenticateUser(),
 			middleware.ValidateGetInput(),
@@ -45,7 +45,7 @@ func NewHTTPHandler(endpoints endpoints.Endpoints) http.Handler {
 		encodeHTTPGenericResponse,
 		commonOptions...,
 	)).Methods(http.MethodGet)
-	m.Handle("/api/v1/model", httptransport.NewServer(
+	m.Handle("/api/model/v1", httptransport.NewServer(
 		endpoint.Chain(
 			middleware.AuthenticateUser(),
 			middleware.ValidateListInput(),
@@ -55,7 +55,7 @@ func NewHTTPHandler(endpoints endpoints.Endpoints) http.Handler {
 		encodeHTTPGenericResponse,
 		commonOptions...,
 	)).Methods(http.MethodGet)
-	m.Handle("/api/v1/model", httptransport.NewServer(
+	m.Handle("/api/model/v1", httptransport.NewServer(
 		endpoint.Chain(
 			middleware.AuthenticateUser(),
 			middleware.ValidateUpdateInput(),
@@ -65,7 +65,7 @@ func NewHTTPHandler(endpoints endpoints.Endpoints) http.Handler {
 		encodeHTTPGenericResponse,
 		commonOptions...,
 	)).Methods(http.MethodPut)
-	m.Handle("/api/v1/model/{id}", httptransport.NewServer(
+	m.Handle("/api/model/v1/{id}", httptransport.NewServer(
 		endpoint.Chain(
 			middleware.AuthenticateUser(),
 			middleware.ValidateDeleteInput(),
