@@ -21,7 +21,7 @@ type GetRequest struct {
 }
 
 type GetResponse struct {
-	ID uuid.UUID `json:"id" validate:"required"`
+	ID uuid.UUID `json:"id"`
 }
 
 type ListRequest struct {
