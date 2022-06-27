@@ -1,4 +1,5 @@
-# go-crud-cognito-auth-microservice-template
+# go-cognito-crud-microservice-template
+
 
 A minimalist template to get you started quickly with building a pre-implemented CRUD microservice in Go. 
 Just add your model specific fields, and you are all set :rocket:.
