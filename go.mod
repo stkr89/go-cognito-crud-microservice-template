@@ -1,4 +1,4 @@
-module github.com/stkr89/modelsvc
+module github.com/stkr89/go-cognito-crud-microservice-template
 
 go 1.18
 

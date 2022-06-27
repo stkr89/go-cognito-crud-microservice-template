@@ -3,7 +3,7 @@ package common
 import (
 	"context"
 	"encoding/json"
-	"github.com/stkr89/modelsvc/types"
+	"github.com/stkr89/go-cognito-crud-microservice-template/types"
 )
 
 func GetUserFromContext(ctx context.Context) (*types.User, error) {

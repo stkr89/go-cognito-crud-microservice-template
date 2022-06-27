@@ -3,10 +3,10 @@ package service
 import (
 	"context"
 	"github.com/go-kit/kit/log"
-	"github.com/stkr89/modelsvc/common"
-	"github.com/stkr89/modelsvc/dao"
-	"github.com/stkr89/modelsvc/models"
-	"github.com/stkr89/modelsvc/types"
+	"github.com/stkr89/go-cognito-crud-microservice-template/common"
+	"github.com/stkr89/go-cognito-crud-microservice-template/dao"
+	"github.com/stkr89/go-cognito-crud-microservice-template/models"
+	"github.com/stkr89/go-cognito-crud-microservice-template/types"
 )
 
 // ModelService interface

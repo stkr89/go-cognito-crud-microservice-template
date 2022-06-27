@@ -3,9 +3,9 @@ package dao
 import (
 	"github.com/go-kit/log"
 	"github.com/google/uuid"
-	"github.com/stkr89/modelsvc/common"
-	"github.com/stkr89/modelsvc/config"
-	"github.com/stkr89/modelsvc/models"
+	"github.com/stkr89/go-cognito-crud-microservice-template/common"
+	"github.com/stkr89/go-cognito-crud-microservice-template/config"
+	"github.com/stkr89/go-cognito-crud-microservice-template/models"
 	"gorm.io/gorm"
 )
 

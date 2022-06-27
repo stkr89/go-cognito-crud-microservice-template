@@ -4,12 +4,12 @@ import (
 	"context"
 	"encoding/json"
 	"github.com/go-kit/kit/endpoint"
-	"github.com/stkr89/modelsvc/middleware"
-	v1 "github.com/stkr89/modelsvc/pb"
-	"github.com/stkr89/modelsvc/types"
+	"github.com/stkr89/go-cognito-crud-microservice-template/middleware"
+	v1 "github.com/stkr89/go-cognito-crud-microservice-template/pb"
+	"github.com/stkr89/go-cognito-crud-microservice-template/types"
 
 	gt "github.com/go-kit/kit/transport/grpc"
-	"github.com/stkr89/modelsvc/endpoints"
+	"github.com/stkr89/go-cognito-crud-microservice-template/endpoints"
 )
 
 type gRPCServer struct {

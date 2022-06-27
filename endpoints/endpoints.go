@@ -2,10 +2,10 @@ package endpoints
 
 import (
 	"context"
-	"github.com/stkr89/modelsvc/types"
+	"github.com/stkr89/go-cognito-crud-microservice-template/types"
 
 	"github.com/go-kit/kit/endpoint"
-	"github.com/stkr89/modelsvc/service"
+	"github.com/stkr89/go-cognito-crud-microservice-template/service"
 )
 
 type Endpoints struct {

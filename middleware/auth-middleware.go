@@ -4,7 +4,7 @@ import (
 	"context"
 	"github.com/go-kit/kit/endpoint"
 	"github.com/go-playground/validator/v10"
-	"github.com/stkr89/modelsvc/common"
+	"github.com/stkr89/go-cognito-crud-microservice-template/common"
 )
 
 func AuthenticateUser() endpoint.Middleware {

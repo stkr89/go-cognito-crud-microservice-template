@@ -7,7 +7,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/lestrrat-go/jwx/jwk"
 	"github.com/lestrrat-go/jwx/jwt"
-	"github.com/stkr89/modelsvc/types"
+	"github.com/stkr89/go-cognito-crud-microservice-template/types"
 	"net/http"
 	"os"
 	"strings"

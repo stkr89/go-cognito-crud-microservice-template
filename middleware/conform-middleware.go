@@ -4,8 +4,8 @@ import (
 	"context"
 	"github.com/go-kit/kit/endpoint"
 	"github.com/leebenson/conform"
-	"github.com/stkr89/modelsvc/common"
-	"github.com/stkr89/modelsvc/types"
+	"github.com/stkr89/go-cognito-crud-microservice-template/common"
+	"github.com/stkr89/go-cognito-crud-microservice-template/types"
 )
 
 func ConformListInput() endpoint.Middleware {

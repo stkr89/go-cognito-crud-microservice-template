@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/stkr89/modelsvc/cmd/server"
+	"github.com/stkr89/go-cognito-crud-microservice-template/cmd/server"
 )
 
 func main() {

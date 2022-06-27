@@ -8,7 +8,7 @@ import (
 	sync "sync"
 
 	github_com_google_uuid "github.com/google/uuid"
-	github_com_stkr89_modelsvc_models "github.com/stkr89/modelsvc/models"
+	github_com_stkr89_modelsvc_models "github.com/stkr89/go-cognito-crud-microservice-template/models"
 )
 
 // MockModelDao is a mock of ModelDao interface

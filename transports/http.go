@@ -7,10 +7,10 @@ import (
 	httptransport "github.com/go-kit/kit/transport/http"
 	"github.com/google/uuid"
 	"github.com/gorilla/mux"
-	"github.com/stkr89/modelsvc/common"
-	"github.com/stkr89/modelsvc/endpoints"
-	"github.com/stkr89/modelsvc/middleware"
-	"github.com/stkr89/modelsvc/types"
+	"github.com/stkr89/go-cognito-crud-microservice-template/common"
+	"github.com/stkr89/go-cognito-crud-microservice-template/endpoints"
+	"github.com/stkr89/go-cognito-crud-microservice-template/middleware"
+	"github.com/stkr89/go-cognito-crud-microservice-template/types"
 	"net/http"
 )
 

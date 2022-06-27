@@ -1,7 +1,7 @@
 package config
 
 import (
-	"github.com/stkr89/modelsvc/models"
+	"github.com/stkr89/go-cognito-crud-microservice-template/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
